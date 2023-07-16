@@ -1,6 +1,7 @@
 import React, {Component, useState} from 'react';
-    
-function SoloMode(){
+
+
+export default function SoloMode(){    
 
     let charactername = [
         "?",
@@ -132,8 +133,8 @@ function SoloMode(){
     let Rare = 52;
     let SR = 14;
     
-    let [Cnum, Numbering] = useState([1,1,1,1,1,1,1,1,1,1]);
-    let [showname, Naming] = useState("");
+    let [Cnum, Numbering] = useState([0,0,0,0,0,0,0,0,0,0]);
+    let [showname, Naming] = useState("-");
 
     function getRandom(min, max) {
         min = Math.ceil(min);
@@ -177,37 +178,21 @@ function SoloMode(){
         Numbering(characterarray);
     }
         
-    let imgname =
-    ["../img/" + Cnum[0] + ".png",
-    "../img/" + Cnum[1] + ".png",
-    "../img/" + Cnum[2] + ".png",
-    "../img/" + Cnum[3] + ".png",
-    "../img/" + Cnum[4] + ".png",
-    "../img/" + Cnum[5] + ".png",
-    "../img/" + Cnum[6] + ".png",
-    "../img/" + Cnum[7] + ".png",
-    "../img/" + Cnum[8] + ".png",
-    "../img/" + Cnum[9] + ".png",
-    ];
+    const imglink = Cnum.map((number) => {
+        return "../img/" + number + ".png";
+    })
+
+    const characterlist = imglink.map((img, index) => {
+        return <article><img className="unit" alt="image" src={img} onMouseOver={() => {Naming(charactername[Cnum[index]]);}}/></article>
+    })
 
     return(
         <div>
             <div id="SoloCharacterbox">
-                <article><img className="unit" alt="image" src={imgname[0]} onMouseOver={() => {Naming(charactername[Cnum[0]]);}}/></article>
-                <article><img className="unit" alt="image" src={imgname[1]} onMouseOver={() => {Naming(charactername[Cnum[1]]);}}/></article>
-                <article><img className="unit" alt="image" src={imgname[2]} onMouseOver={() => {Naming(charactername[Cnum[2]]);}}/></article>
-                <article><img className="unit" alt="image" src={imgname[3]} onMouseOver={() => {Naming(charactername[Cnum[3]]);}}/></article>
-                <article><img className="unit" alt="image" src={imgname[4]} onMouseOver={() => {Naming(charactername[Cnum[4]]);}}/></article>
-                <article><img className="unit" alt="image" src={imgname[5]} onMouseOver={() => {Naming(charactername[Cnum[5]]);}}/></article>
-                <article><img className="unit" alt="image" src={imgname[6]} onMouseOver={() => {Naming(charactername[Cnum[6]]);}}/></article>
-                <article><img className="unit" alt="image" src={imgname[7]} onMouseOver={() => {Naming(charactername[Cnum[7]]);}}/></article>
-                <article><img className="unit" alt="image" src={imgname[8]} onMouseOver={() => {Naming(charactername[Cnum[8]]);}}/></article>
-                <article><img className="unit" alt="image" src={imgname[9]} onMouseOver={() => {Naming(charactername[Cnum[9]]);}}/></article>
+                {characterlist}
             </div>
-            <p>{showname}</p>
-            <button className='summon' onClick={Randnumber}>Click here to summon mob</button>
+            <p className="mobname">{showname}</p>
+            <button className='summon' onClick={Randnumber}>캐릭터 뽑기</button>
         </div>
     )
 }
-
-export default SoloMode;
