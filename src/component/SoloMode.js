@@ -1,4 +1,5 @@
 import React, {Component, useState} from 'react';
+import unitdata from "./UnitData";
 
 
 export default function SoloMode(){    
@@ -177,18 +178,14 @@ export default function SoloMode(){
         }
         Numbering(characterarray);
     }
-        
-    const imglink = Cnum.map((number) => {
-        return "../img/" + number + ".png";
-    })
-
-    const characterlist = imglink.map((img, index) => {
-        return <article><img className="unit" alt="image" src={img} onMouseOver={() => {Naming(charactername[Cnum[index]]);}}/></article>
+    
+    const characterlist = Cnum.map((index) => {
+        return <article><img className="unit" alt="image" src={unitdata.data.units[index].imgurl} onMouseOver={() => {Naming(unitdata.data.units[index].name);}}/></article>
     })
 
     return(
         <div>
-            <div id="SoloCharacterbox">
+            <div className="SoloCharacterbox">
                 {characterlist}
             </div>
             <p className="mobname">{showname}</p>

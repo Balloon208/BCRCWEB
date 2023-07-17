@@ -4,7 +4,7 @@ class TOP extends Component{
     render(){
         return(
             <header>
-                <div id='TOPheader'>
+                <div className='TOPheader'>
                     <li><a href='/home' onClick={function(e){
                             e.preventDefault();
                             this.props.onChangeMode('Welcome');
