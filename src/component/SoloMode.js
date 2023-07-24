@@ -4,6 +4,7 @@ import unitdata from "./UnitData";
 
 export default function SoloMode(){    
 
+    /*
     let charactername = [
         "?",
         "고양이", "탱크 고양이","배틀 고양이","징글 고양이","황소 고양이",
@@ -14,7 +15,7 @@ export default function SoloMode(){
         "귀여미", "광란의 귀여미", "고양이 플라워", "고양이 닌자~청~", "태권도 냥코",
         "기념주화 고양이", "고양이 농가", "골드바 고양이", "장수풍뎅이 고양이", "사슴벌레 고양이"
     ]
-    /*폭죽 고양이
+    폭죽 고양이
     소꿉친구 냥코
     말괄량이 고양이 라이온
     고양이 칠판지우개
