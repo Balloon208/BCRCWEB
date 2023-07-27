@@ -2,7 +2,8 @@ import './App.css';
 import React, {Component} from 'react';
 import TOP from "./component/TOP";
 import BOTTOM from "./component/BOTTOM";
-import SoloMode from "./component/SoloMode"
+import SoloMode from "./component/SoloMode";
+import Option from "./component/Option";
 
 class App extends Component{
   constructor(props){
@@ -14,7 +15,7 @@ class App extends Component{
       Welcome:{title:"BCRC에 방문한 것을 환영합니다!"},
       Solomode:{title:"BCRC 솔로 모드 입니다."},
       Versus:{title:"BCRC Versus 모드 입니다."},
-      Setting:{title:"BCRC 세팅 모드 입니다."}
+      Option:{title:"BCRC 세팅 모드 입니다."}
     };
   }
 
@@ -42,9 +43,13 @@ class App extends Component{
         <h2 className='text'>{Ctitle}</h2>
       </div>
     }
-    if(this.state.mode === 'Setting'){
-      Ctitle = this.state.Setting.title;
-      Carticle = <h2 className='text'>{Ctitle}</h2>
+    if(this.state.mode === 'Option'){
+      Ctitle = this.state.Option.title;
+      Carticle = 
+      <div>
+        <h2 className='text'>{Ctitle}</h2>
+        <Option></Option>
+      </div>
     }
 
     return Carticle;
@@ -57,7 +62,7 @@ class App extends Component{
             this.setState({
               mode: Mode
             });
-        }.bind(this)} 
+        }.bind(this)}
         title={this.state.TOP.title}></TOP>
         {this.getContent()}
         <BOTTOM title={this.state.BOTTOM.title}></BOTTOM>

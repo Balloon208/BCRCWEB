@@ -17,10 +17,10 @@ class TOP extends Component{
                             e.preventDefault();
                             this.props.onChangeMode('Versus');
                         }.bind(this)}>Versus</a></li>
-                    <li><a href='/Setting' onClick={function(e){
+                    <li><a href='/Option' onClick={function(e){
                             e.preventDefault();
-                            this.props.onChangeMode('Setting');
-                        }.bind(this)}>Setting</a></li>
+                            this.props.onChangeMode('Option');
+                        }.bind(this)}>Option</a></li>
                 </div>
                 <h2 className='logo'>{this.props.title}</h2>
             </header>
