@@ -14,12 +14,18 @@
 .TOPheader{
   display: flex;
 }
+
 .TOPheader li{
   list-style-type: none;
   width: 25%;
   text-align: center;
-  background-color: yellow;
+  background-color: #ffff00;
   padding: 20px;
+  cursor: pointer;
+}
+
+.TOPheader li:hover{
+  background-color: #ffee00;
 }
 
 .SoloCharacterbox{

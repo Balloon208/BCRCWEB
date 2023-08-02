@@ -1,8 +1,15 @@
-import React, {Component, useState} from 'react';
+import React, {Component, useState, useEffect} from 'react';
 import unitdata from "./UnitData";
 
 
 export default function SoloMode(){    
+    let [Toggle, setToggle] = useState("OFF");
+
+    useEffect(()=>{
+        let asd = localStorage.getItem('test');
+        setToggle(asd);
+    }, []);
+
 
     /*
     let charactername = [
@@ -191,6 +198,9 @@ export default function SoloMode(){
             </div>
             <p className="mobname">{showname}</p>
             <button className='summon' onClick={Randnumber}>캐릭터 뽑기</button>
+            <div style={Toggle==="ON" ? {color:"blue"} : {color:"red"}}>
+                asdf
+            </div>
         </div>
     )
 }
