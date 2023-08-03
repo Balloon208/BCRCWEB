@@ -31,12 +31,13 @@
 .SoloCharacterbox{
   top: 0;
   width: 50%;
-  margin: 0px 25%;
+  height: 40%;
+  margin: 8% 25%;
   position: relative;
   display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 	grid-template-rows: 1fr 1fr;
-  grid-column-gap: 0px;
+  grid-column-gap: 50px;
 }
 
 article{
