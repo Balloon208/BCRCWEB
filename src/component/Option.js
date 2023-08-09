@@ -4,7 +4,7 @@ export default function Option(){
     let [Toggle, setToggle] = useState("OFF");
 
     useEffect(()=>{
-        let asd = localStorage.getItem('test');
+        let asd = localStorage.getItem('SetNormal');
         setToggle(asd);
     }, []);
 
@@ -12,11 +12,11 @@ export default function Option(){
         <div>
             <input type="checkbox" checked={Toggle==="ON"} onChange={()=>{
                 setToggle(Toggle==="ON"?"OFF":"ON")
-                localStorage.setItem('test', Toggle==="ON" ? "OFF" : "ON");
+                localStorage.setItem('SetNormal', Toggle==="ON" ? "OFF" : "ON");
             }}>
             </input>
             <div style={Toggle==="ON" ? {color:"blue"} : {color:"red"}}>
-                asdf
+                고양이 초인 없애기
             </div>
         </div>
     )

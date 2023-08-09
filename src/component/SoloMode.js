@@ -2,12 +2,18 @@ import React, {Component, useState, useEffect} from 'react';
 import unitdata from "./UnitData";
 
 
-export default function SoloMode(){    
-    let [Toggle, setToggle] = useState("OFF");
-
+export default function SoloMode(){
     useEffect(()=>{
-        let asd = localStorage.getItem('test');
-        setToggle(asd);
+        let asd = localStorage.getItem('SetNormal');
+
+        if(asd === "ON")
+        {
+            SetNormal(9);
+        }
+        else
+        {
+            SetNormal(10);
+        }
     }, []);
 
 
@@ -137,7 +143,7 @@ export default function SoloMode(){
 
 총 139 종류
 */
-    let Normal = 10;
+    let [Normal, SetNormal] = useState(10);
     let Ex = 64;
     let Rare = 52;
     let SR = 14;
@@ -165,24 +171,36 @@ export default function SoloMode(){
     const Randnumber = () => {
         let characterarray = [];
         let flag;
+        let max = Normal;
+        let selected = 0;
+
         for(let i=0; i<10; i++)
         {
             let num;
             flag = false;
 
-            while(!flag)
+            if(selected != max)
             {
-                num = getCharacter();
-                flag = true;
-                for(let j=0; j<i; j++)
+                while(!flag)
                 {
-                    if(characterarray[j]==num)
+                    num = getCharacter();
+                    flag = true;
+                    selected++;
+                    for(let j=0; j<i; j++)
                     {
-                        flag = false;
+                        if(characterarray[j]==num)
+                        {
+                            selected--;
+                            flag = false;
+                        }
                     }
                 }
+                characterarray[i]=num;
             }
-            characterarray[i]=num;
+            else
+            {
+                characterarray[i]=0;
+            }
         }
         Numbering(characterarray);
     }
@@ -198,9 +216,6 @@ export default function SoloMode(){
             </div>
             <p className="mobname">{showname}</p>
             <button className='summon' onClick={Randnumber}>캐릭터 뽑기</button>
-            <div style={Toggle==="ON" ? {color:"blue"} : {color:"red"}}>
-                asdf
-            </div>
         </div>
     )
 }
