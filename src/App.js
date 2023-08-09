@@ -6,7 +6,6 @@ import SoloMode from "./component/SoloMode";
 import Option from "./component/Option";
 
 export default function App(){
-  const [mode, setMode] = useState('Welcome');
   const [MainArticle, setMainArticle] = useState(
     <div>
       <h2 className='text'>Welcome</h2>
